@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Layout</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            background-color: #e6e6e6;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        :root {
+            --block-color: #9d5652; 
+            --text-color: #fff;
+            --header-bg-mobile: #444;
+        }
+
+        .box {
+            background-color: var(--block-color);
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            min-height: 60px;
+            margin-bottom: 10px;
+            border-radius: 2px;
+        }
+
+        .logo-text {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: #883333;
+            display: flex;
+            align-items: center;
+        }
+
+        .mobile-header-bar {
+            background-color: var(--header-bg-mobile);
+            color: white;
+            padding: 10px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: -15px -15px 15px -15px;
+        }
+
+        .mobile-header-bar .logo-mobile {
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .mobile-header-bar .hamburger {
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .desktop-header-row {
+            display: none;
+        }
+
+        #nav {
+            width: 100%;
+            height: 80px;
+        }
+
+        #main {
+            width: 100%;
+            height: 150px;
+        }
+
+        #aside {
+            width: 100%;
+            height: 100px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+
+        @media (min-width: 600px) {
+            .mobile-header-bar {
+                display: none;
+            }
+
+            .desktop-header-row {
+                display: flex;
+                margin-bottom: 15px;
+                align-items: stretch;
+            }
+
+            .logo-text {
+                width: 25%;
+                justify-content: flex-start;
+                padding-left: 10px;
+            }
+
+            #nav {
+                width: 75%;
+                margin-bottom: 0;
+                height: 50px;
+            }
+
+            #main {
+                width: 100%;
+                height: 200px;
+            }
+
+            #aside {
+                width: 100%;
+                height: 120px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .logo-text {
+                width: 20%;
+            }
+            #nav {
+                width: 80%;
+            }
+
+            .content-body {
+                display: flex;
+                gap: 15px;
+                margin-bottom: 10px;
+            }
+
+            #main {
+                flex: 2.5;
+                height: 300px;
+                margin-bottom: 0;
+            }
+
+            #aside {
+                flex: 1;
+                height: 300px;
+                margin-bottom: 0;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="mobile-header-bar">
+            <div class="logo-mobile">LOGO</div>
+            <div class="hamburger">☰</div>
+        </div>
+
+        <div class="desktop-header-row">
+            <div class="logo-text">LOGO</div>
+            <div class="box" id="nav">#nav</div>
+        </div>
+
+        <div class="content-body">
+            <div class="box" id="main">#main</div>
+            <div class="box" id="aside">#aside</div>
+        </div>
+
+        <div class="footer-grid">
+            <div class="box column">.column1</div>
+            <div class="box column">.column2</div>
+            <div class="box column">.column3</div>
+            <div class="box column">.column4</div>
+            <div class="box column">.column5</div>
+            <div class="box column">.column6</div>
+        </div>
+    </div>
+
+</body>
+</html>

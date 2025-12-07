@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giao diện Responsive dùng @media</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            border: 2px solid #ccc;
+            padding: 10px;
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .block {
+            padding: 15px;
+            border-radius: 4px;
+            min-height: 50px;
+        }
+        .orange-block { background-color: #ff9933; }
+        .yellow-block { background-color: #c9ff33; min-height: 120px; }
+        .blue-block { background-color: #4a86e8; }
+        .grey-block { background-color: #e0e0e0; }
+        .header-top, .main-content-row, .footer-row {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .blue-block:nth-child(3) {
+            display: none;
+        }
+        .grey-block:nth-child(2),
+        .grey-block:nth-child(3),
+        .grey-block:nth-child(4) {
+             display: none;
+        }
+        @media (min-width: 600px) {
+            .blue-block:nth-child(3) {
+                display: block;
+            }
+            .footer-row {
+                flex-direction: row;
+            }
+            .grey-block:nth-child(1),
+            .grey-block:nth-child(2) {
+                flex: 1; 
+                display: block;
+            }
+            .grey-block:nth-child(3),
+            .grey-block:nth-child(4) {
+                 display: none;
+            }
+        }
+        @media (min-width: 992px) {
+            .header-top {
+                flex-direction: row;
+            }
+            .header-top .orange-block:first-child {
+                flex-basis: 80%;
+            }
+            .header-top .orange-block:last-child {
+                flex-basis: 20%;
+            }
+            .main-content-row {
+                flex-direction: row;
+                flex-wrap: wrap; 
+            }
+            .main-content-row .blue-block {
+                flex: 1 1 calc(33.333% - 7px);
+                min-height: 80px;
+            }
+            .footer-row {
+                flex-direction: row;
+            }
+            .grey-block {
+                flex: 1;
+                display: block !important; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h2 style="text-align: center; margin-bottom: 20px;"></h2>
+
+    <div class="container">
+        <div class="header-top">
+            <div class="block orange-block"></div>
+            <div class="block orange-block"></div>
+        </div>
+
+        <div class="block yellow-block"></div>
+        
+        <div class="main-content-row">
+            <div class="block blue-block"></div>
+            <div class="block blue-block"></div>
+            <div class="block blue-block"></div>
+        </div>
+        
+        <div class="footer-row">
+            <div class="block grey-block"></div>
+            <div class="block grey-block"></div>
+            <div class="block grey-block"></div>
+            <div class="block grey-block"></div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Layout (Purple Theme)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #fff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .row {
+            display: flex;
+            flex-wrap: wrap; 
+            margin: -5px; 
+        }
+        .col {
+            padding: 5px;
+            box-sizing: border-box; 
+            min-height: 100px;
+        }
+        .row-1 .col.head {
+            background-color: #c9006c; 
+                        padding: 20px;
+            text-align: center;
+            border-radius: 4px;
+            margin: 10px;
+        }
+        .content-box {
+            background-color: #c9006c; 
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 4px;
+        }
+        .pink-dark { background-color: #c9006c; }
+        .pink-medium { background-color: #d74797; }
+        .pink-light { background-color: #e58fd7; }
+        .row-1 .col { width: 100%; height: 200px; }
+        .row-2 .col-2-1 { width: 25%; }
+        .row-2 .col-2-2 { width: 50%; }
+        .row-2 .col-2-3 { width: 25%; }
+        .row-3 .col { width: 25%; }  
+        .row-4 .col { width: 100%; height: 150px; }
+        @media (max-width: 1024px) {
+            .row-2 .col-2-1 { width: 100%; } 
+            .row-2 .col-2-2,
+            .row-2 .col-2-3 { width: 50%; }  
+            .row-3 .col { width: 50%; }
+            .row-3 .col:nth-child(4) { width: 100%; } 
+        }
+        @media (max-width: 600px) {
+            
+            .row .col, 
+            .row-2 .col-2-1,
+            .row-2 .col-2-2,
+            .row-2 .col-2-3 {
+                width: 100%;
+                margin-top: 5px;
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="row row-1">
+            <div class="col head">
+                <div class="content-box pink-dark">Section 1</div>
+            </div>
+        </div>
+
+        <div class="row row-2">
+            <div class="col col-2-1">
+                <div class="content-box pink-medium">Section 2A</div>
+            </div>
+            <div class="col col-2-2">
+                <div class="content-box pink-medium">Section 2B</div>
+            </div>
+            <div class="col col-2-3">
+                <div class="content-box pink-medium">Section 2C</div>
+            </div>
+        </div>
+        
+        <div class="row row-3">
+            <div class="col">
+                <div class="content-box pink-light">Section 3A</div>
+            </div>
+            <div class="col">
+                <div class="content-box pink-light">Section 3B</div>
+            </div>
+            <div class="col">
+                <div class="content-box pink-light">Section 3C</div>
+            </div>
+            <div class="col">
+                <div class="content-box pink-light">Section 3D</div>
+            </div>
+        </div>
+        
+        <div class="row row-4">
+            <div class="col">
+                <div class="content-box pink-medium">Section 4</div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
