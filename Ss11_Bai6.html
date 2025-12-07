@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Grid Layout</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .browser-window {
+            background: #fff;
+            width: 100%;
+            max-width: 1200px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .browser-top {
+            background-color: #fff;
+            padding: 10px;
+            border-bottom: 2px solid #ccc;
+            display: flex;
+            align-items: center;
+        }
+
+        .address-bar {
+            width: 60%;
+            height: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: auto;
+            background: #f9f9f9;
+            font-size: 10px;
+            display: flex;
+            align-items: center;
+            padding-left: 5px;
+            color: #999;
+        }
+
+        .dots {
+            display: flex;
+            gap: 5px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border: 1px solid #ccc;
+        }
+
+        .container {
+            display: grid;
+            width: 100%;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+            grid-template-areas: 
+                "header"
+                "content"
+                "signup"
+                "feature-y"
+                "feature-r"
+                "feature-p";
+        }
+
+        .item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #555;
+            font-weight: bold;
+            font-size: 1.2rem;
+            padding: 20px;
+            text-transform: uppercase;
+        }
+
+        .header {
+            grid-area: header;
+            background-color: #aecdff;
+            height: 100px;
+            border-top: 15px solid #5b8bd9; 
+        }
+
+        .content {
+            grid-area: content;
+            background-color: #f0f2f5;
+            height: 200px;
+        }
+
+        .signup {
+            grid-area: signup;
+            background-color: #d6e7ff;
+            height: 100px;
+        }
+
+        .feature-yellow {
+            grid-area: feature-y;
+            background-color: #f2d699;
+            height: 120px;
+        }
+
+        .feature-red {
+            grid-area: feature-r;
+            background-color: #e09494;
+            height: 120px;
+        }
+
+        .feature-purple {
+            grid-area: feature-p;
+            background-color: #c6c6fa;
+            height: 120px;
+        }
+
+        @media (min-width: 600px) {
+            .container {
+                grid-template-columns: 1fr 1fr;
+                grid-template-areas: 
+                    "header header"
+                    "content content"
+                    "signup feature-y"
+                    "feature-r feature-p";
+            }
+
+            .content {
+                height: 250px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .container {
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-areas: 
+                    "header header header"
+                    "feature-y feature-p feature-r"
+                    "signup signup signup"
+                    "content content content";
+            }
+
+            .feature-yellow, .feature-red, .feature-purple {
+                height: 250px;
+            }
+
+            .content {
+                height: 300px;
+            }
+            
+            .signup {
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="browser-window">
+        <div class="container">
+            <div class="item header">(HEADER)</div>
+            <div class="item content">(CONTENT)</div>
+            <div class="item signup">(SIGN UP)</div>
+            <div class="item feature-yellow">(FEATURE)</div>
+            <div class="item feature-red">(FEATURE)</div>
+            <div class="item feature-purple">(FEATURE)</div>
+        </div>
+    </div>
+
+</body>
+</html>
